@@ -7,7 +7,7 @@ services:
     environment:
       - REPO_URL=https://github.com/raparisonbryan/TP_github_runners.git
       - RUNNER_NAME=tp_github_runner
-      - RUNNER_TOKEN=your_runner_token
+      - RUNNER_TOKEN=AVVCNIENY7WEVHWDJS4DYQ3GOBG34
       - RUNNER_WORKDIR=/tmp/github-runner
       - RUNNER_GROUP=Default
       - LABELS=self_hosted,Windows,x64
