@@ -1,0 +1,9 @@
+﻿{
+  "agentId": 2,
+  "agentName": "tp_github_runner",
+  "poolId": 1,
+  "poolName": "Default",
+  "serverUrl": "https://pipelinesghubeus24.actions.githubusercontent.com/OgVuZ92auZmPcux8qEPs28XW3231s3gA5DI98alcwLZqvEXOM8/",
+  "gitHubUrl": "https://github.com/raparisonbryan/TP_github_runners",
+  "workFolder": "_work"
+}
