@@ -9,6 +9,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+        with:
+          repository: raparisonbryan/TP_github_runners
+          token: ${{ secrets.TOKEN }}
+          path: ./repo
 
       - name: Set up Docker Compose
         run: |
