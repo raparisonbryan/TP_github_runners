@@ -6,11 +6,11 @@ services:
     container_name: github_runner
     environment:
       - REPO_URL=https://github.com/raparisonbryan/TP_github_runners.git
-      - RUNNER_NAME=your_runner_name
+      - RUNNER_NAME=tp_github_runner
       - RUNNER_TOKEN=your_runner_token
       - RUNNER_WORKDIR=/tmp/github-runner
       - RUNNER_GROUP=Default
-      - LABELS=linux,x64,ubuntu,debian
+      - LABELS=self_hosted,Windows,x64
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /tmp/github-runner:/tmp/github-runner
