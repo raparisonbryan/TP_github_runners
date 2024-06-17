@@ -1,6 +1,28 @@
-version: "2.3"
+version: "3.8"
 
 services:
+  app:
+    image: trafex/php-nginx
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASSWORD=rootpassword
+      - DB_NAME=mydatabase
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: mydatabase
+    volumes:
+      - ./init-db.sh:/docker-entrypoint-initdb.d/init-db.sh
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    command: ["bash", "/docker-entrypoint-initdb.d/init-db.sh"]
+
   runner:
     image: myoung34/github-runner:latest
     container_name: github_runner
@@ -10,7 +32,7 @@ services:
       - RUNNER_TOKEN=AVVCNIENY7WEVHWDJS4DYQ3GOBG34
       - RUNNER_WORKDIR=/tmp/github-runner
       - RUNNER_GROUP=Default
-      - LABELS=self_hosted,Windows,x64
+      - LABELS=self_hosted,Windows,X64
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /tmp/github-runner:/tmp/github-runner

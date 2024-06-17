@@ -1,28 +1,32 @@
-name: CI
+name: CI for web-php-bdd
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+on: [push, pull_request]
 
 jobs:
-  build:
+  build-and-test:
     runs-on: self-hosted
 
     steps:
-      - name: Checkout code
+      - name: Configure Git to support long paths
+        run: git config --system core.longpaths true
+        
+      - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
+      - name: Set up Docker Compose
+        run: |
+          docker-compose up -d
+        working-directory: ./docker-compose.yml
 
-      - name: Install dependencies
-        run: npm install
+      - name: Wait for services to be up
+        run: |
+          sleep 30
 
-      - name: Run tests
-        run: npm test
+      - name: Test web page
+        run: |
+          curl -f http://localhost:8080 || exit 1
+
+      - name: Stop Docker Compose
+        run: |
+          docker-compose down
+        working-directory: ./docker-compose.yml
