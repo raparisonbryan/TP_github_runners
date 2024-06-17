@@ -1,0 +1,12 @@
+﻿{
+  "repositoryName": "raparisonbryan/TP_github_runners",
+  "pipelineDirectory": "TP_github_runners",
+  "workspaceDirectory": "TP_github_runners\\TP_github_runners",
+  "repositories": {
+    "raparisonbryan/TP_github_runners": {
+      "repositoryPath": "TP_github_runners\\TP_github_runners",
+      "lastRunOn": "06/17/2024 15:58:20 +02:00"
+    }
+  },
+  "lastRunOn": "06/17/2024 15:58:20 +02:00"
+}
