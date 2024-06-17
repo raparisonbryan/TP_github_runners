@@ -12,16 +12,11 @@ jobs:
         with:
           repository: raparisonbryan/TP_github_runners
           token: ${{ secrets.GITHUB_TOKEN }}
-          path: ./repo
 
       - name: Set up Docker Compose
         run: |
           docker-compose up -d
         working-directory: ./docker-compose.yml
-
-      - name: Wait for services to be up
-        run: |
-          sleep 30
 
       - name: Test web page
         run: |
