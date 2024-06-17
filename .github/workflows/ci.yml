@@ -16,7 +16,7 @@ jobs:
       - name: Set up Docker Compose
         run: |
           docker-compose up -d
-        working-directory: ./docker-compose.yml
+        working-directory: ../../
 
       - name: Test web page
         run: |
@@ -25,4 +25,4 @@ jobs:
       - name: Stop Docker Compose
         run: |
           docker-compose down
-        working-directory: ./docker-compose.yml
+        working-directory: ../../
